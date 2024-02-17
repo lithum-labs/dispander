@@ -8,7 +8,7 @@ import re
 
 regex_discord_message_url = (
     '(?!<)https://(ptb.|canary.)?discord(app)?.com/channels/'
-    '(?P<guild>[0-9]{17,20})/(?P<channel>[0-9]{17,20})/(?P<message>[0-9]{17,20})(?!>)'
+    '(?P<guild>[0-9]{18,20})/(?P<channel>[0-9]{18,20})/(?P<message>[0-9]{18,20})(?!>)'
 )
 regex_extra_url = (
     r'\?base_aid=(?P<base_author_id>[0-9]{17,20})'
@@ -78,13 +78,13 @@ async def _delete_dispand(bot: discord.Client, message: discord.Message, operato
             await extra_message.delete()
 
 
-async def dispand(message):
+async def dispand(message: discord.Message):
     messages = await extract_message(message)
     for m in messages:
         sent_messages = []
 
         if m.content or m.attachments:
-            sent_message = await message.channel.send(embed=compose_embed(m))
+            sent_message = await message.reply(embed=compose_embed(m))
             sent_messages.append(sent_message)
         # Send the second and subsequent attachments with embed (named 'embed') respectively:
         for attachment in m.attachments[1:]:
@@ -126,7 +126,7 @@ async def extract_message(message):
 
 
 async def fetch_message_from_id(guild, channel_id, message_id):
-    channel = guild.get_channel(channel_id)
+    channel = guild.get_channel_or_thread(channel_id)
     message = await channel.fetch_message(message_id)
     return message
 
@@ -184,6 +184,9 @@ def compose_embed(message):
         )
     return embed
 
+
+def setup(bot):
+    bot.add_cog(ExpandDiscordMessageUrl(bot))
 
 def setup(bot):
     bot.add_cog(ExpandDiscordMessageUrl(bot))
