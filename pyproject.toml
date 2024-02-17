@@ -1,0 +1,16 @@
+[project]
+name = "dispander"
+version = "0.5.0"
+description = "Discord Message URL Expander"
+authors = [
+    {name = "1ntegrale9", email = "1ntegrale9uation@gmail.com"},
+]
+dependencies = [
+    "discord.py",
+]
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
