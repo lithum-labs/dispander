@@ -2,6 +2,8 @@ import setuptools
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
+with open("requirements.txt", "r") as req:
+    requirements = req.read().splitlines()
 
 setuptools.setup(
     name="dispander",
@@ -18,7 +20,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=[
-        "discord.py",
-    ],
+    install_requires=requirements,
 )
