@@ -1,7 +1,5 @@
 import setuptools
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
 with open("requirements.txt", "r") as req:
     requirements = req.read().splitlines()
 
@@ -11,7 +9,7 @@ setuptools.setup(
     author="1ntegrale9",
     author_email="1ntegrale9uation@gmail.com",
     description="Discord Message URL Expander",
-    long_description=long_description,
+    long_description="Discord Message URL Expander",
     long_description_content_type="text/markdown",
     url="https://github.com/DiscordBotPortalJP/dispander",
     packages=setuptools.find_packages(),
