@@ -5,7 +5,7 @@ DiscordのメッセージURLを検知して展開する機能を追加する dis
 
 # 使い方
 
-`python3 -m pip install dispander`
+`python3 -m pip install git+https://github.com/lithum-labs/dispander.git`
 
 ## extensionとして使用する場合
 
