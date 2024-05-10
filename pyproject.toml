@@ -6,6 +6,9 @@ authors = ["1ntegrale9 <1ntegrale9uation@gmail.com>"]
 maintainers = ["sonyakun <owner@sonyakun.com>"]
 readme = "README.md"
 license = "MIT"
+packages = [
+    { include = "my_package", from = "src" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
