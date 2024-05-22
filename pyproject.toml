@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "liexpand"
+name = "dispander"
 version = "0.5.2"
 description = "Discord Message URL Expander"
 authors = ["1ntegrale9 <1ntegrale9uation@gmail.com>"]
@@ -7,7 +7,7 @@ maintainers = ["sonyakun <owner@sonyakun.com>"]
 readme = "README.md"
 license = "MIT"
 packages = [
-    { include = "my_package", from = "src" },
+    { include = "dispander", from = "src" },
 ]
 
 [tool.poetry.dependencies]
